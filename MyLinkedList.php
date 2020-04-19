@@ -28,7 +28,12 @@ class MyLinkedList
 
     public function addLast($data)
     {
-        if ($this->head != null) {
+        if ($this->numNodes == 1) {
+            $node = new implement_method_of_arraylist\Node($data);
+            $this->head->next = $node;
+            $this->tail = $node;
+            $this->numNodes++;
+        } elseif ($this->head != null) {
             $node = new implement_method_of_arraylist\Node($data);
             $this->tail->next = $node;
             $this->tail = $node;
@@ -111,9 +116,7 @@ class MyLinkedList
 
     function clear()
     {
-        $this->head = new \implement_method_of_arraylist\Node(null);
-        $this->tail = null;
-        $this->head->next = $this->tail;
+        $this->tail = new \implement_method_of_arraylist\Node(null);
         $this->numNodes = 0;
     }
 
